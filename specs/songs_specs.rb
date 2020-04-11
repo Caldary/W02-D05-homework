@@ -6,19 +6,19 @@ require_relative('../songs.rb')
 class SongsTest < MiniTest::Test
 
     def setup
-         @songs = Songs.new("Bohemian Rhapsody", "Queen", "Rock")
+         @song1 = Songs.new("Bohemian Rhapsody", "Queen", "Rock")
     end
 
         def test_song_has_tittle()
-            assert_equal("Bohemian Rhapsody", @songs.title())
+            assert_equal("Bohemian Rhapsody", @song1.title())
         end
 
         def test_song_has_artist()
-            assert_equal("Queen", @songs.artist())
+            assert_equal("Queen", @song1.artist())
         end
 
         def test_song_has_genre()
-            assert_equal("Rock", @songs.genre())
+            assert_equal("Rock", @song1.genre())
         end
     
 

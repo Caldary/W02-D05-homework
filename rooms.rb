@@ -1,7 +1,10 @@
 class Rooms
 
-    def initialize:(name, music_library, capacity)
+attr_reader(:name, :capacity, :music_library)
+
+    def initialize(name, capacity, music_library)
         @name = name
+        @capacity = capacity
         @music_library = []
-        @campcity = []
+    end
 end

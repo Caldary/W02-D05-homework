@@ -9,7 +9,7 @@ class RoomsTest < MiniTest::Test
 
     def setup
         @song1 = Songs.new("Bohemian Rhapsody", "Queen", "Rock")
-        @room1 = Rooms.new("Boogey Town", 0, [])
+        @room1 = Rooms.new("Boogey Town", [], [], 6)
         @guest1 = Guests.new("Paulo", 31)
     end
 
@@ -17,8 +17,8 @@ class RoomsTest < MiniTest::Test
            assert_equal("Boogey Town", @room1.name)
        end
 
-       def test_room_has_capacity()
-           assert_equal(0, @room1.capacity())
+       def test_room_has_size()
+           assert_equal(0, @room1.room_size().length())
        end
 
        def test_room_has_a_music_library()
@@ -34,9 +34,16 @@ class RoomsTest < MiniTest::Test
             assert_equal(1, @room1.music_library.length())
        end
 
-       def test_add_guest_to_room()
-        @room1.add_guest(@guest1)
-        assert_equal(1, @room1.capacity())
+       def test_check_guest_to_room__in_and_out()
+        @room1.check_in_guest(@guest1)
+        assert_equal(1, @room1.room_size().length())
+        @room1.check_out_guest(@guest1)
+        assert_equal(0, @room1.room_size().length())
        end
+
+       def test_room_capacity()
+            assert_equal(6, @room1.capacity())
+       end
+
 
 end

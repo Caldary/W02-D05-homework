@@ -9,7 +9,7 @@ class RoomsTest < MiniTest::Test
 
     def setup
         @song1 = Songs.new("Bohemian Rhapsody", "Queen", "Rock")
-        @room1 = Rooms.new("Boogey Town", [], [], 6)
+        @room1 = Rooms.new("Boogey Town", [], [])
         @guest1 = Guests.new("Paulo", 31)
     end
 
@@ -42,7 +42,15 @@ class RoomsTest < MiniTest::Test
        end
 
        def test_room_capacity()
-            assert_equal(6, @room1.capacity())
+            @room1.check_in_guest(@guest1)
+            @room1.check_in_guest(@guest1)
+            @room1.check_in_guest(@guest1)
+            @room1.check_in_guest(@guest1)
+            @room1.check_in_guest(@guest1)
+            @room1.check_in_guest(@guest1)
+            @room1.check_in_guest(@guest1)
+            @room1.check_in_guest(@guest1)
+            assert_equal(6, @room1.room_size().length())
        end
 
 

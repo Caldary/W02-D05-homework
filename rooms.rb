@@ -1,12 +1,11 @@
 class Rooms
 
-attr_reader(:name, :room_size, :music_library, :capacity)
+attr_reader(:name, :room_size, :music_library)
 
-    def initialize(name, room_size, music_library, capacity)
+    def initialize(name, room_size, music_library)
         @name = name
         @room_size = []
         @music_library = []
-        @capacity = 6
     end
 
     def add_song(song)
@@ -14,7 +13,7 @@ attr_reader(:name, :room_size, :music_library, :capacity)
     end
 
     def check_in_guest(guest)
-        if @capacity <= 6  
+        if @room_size.length() <= 5
         @room_size << guest
         end
     end
